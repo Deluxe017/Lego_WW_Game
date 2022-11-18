@@ -31,6 +31,17 @@ public class Movement : MonoBehaviour
         transform.Translate(movementDirection * movementSpeed * Time.deltaTime);
         transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal") * rotationSpeed, 0));
 
+        if (Input.GetButtonDown("Correr"))
+        {
+            movementSpeed = 20f;
+
+        } 
+        if (Input.GetButtonUp("Correr"))
+        {
+            movementSpeed = 10f;
+
+        }
+
         Vector3 floor = transform.TransformDirection(Vector3.down);
 
         if(Physics.Raycast(transform.position, floor, 00.5f))
